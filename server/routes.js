@@ -7,8 +7,7 @@ import * as auth from './auth/auth.service';
 export default function(app) {
   // AUTH Routes
 
-  // this turns on csrf token for all calls after it
-  // only turned non-development envs
+  // turns on csrf token for all calls after
   if (config.isProd) {
     app.use(lusca.csrf({ angular: true }));
   }

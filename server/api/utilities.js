@@ -54,7 +54,7 @@ export default {
     };
   },
 
-  // gets a list of Models
+  // gets a list of models
   async list(req, res, Model, options = {}, includes = []) {
     if (Model && 'findAll' in Model) {
       if (includes.length) {
@@ -72,7 +72,7 @@ export default {
     }
   },
 
-  // gets a single Model
+  // gets a single model
   async get(req, res, Model, options = { where: { id: req.params.id } }, includes = []) {
     if (Model && 'find' in Model) {
       if (includes.length) {
@@ -91,12 +91,9 @@ export default {
     }
   },
 
-  // create a single Model
+  // create a single model
   async create(req, res, Model, options = {}, postCreateFn) {
     if (Model && 'create' in Model) {
-      req.body.changedBy = req.user.id;
-      req.body.changedOn = new Date();
-
       try {
         let model = await Model.create(req.body, options);
 
@@ -113,14 +110,9 @@ export default {
     }
   },
 
-  // create n number of Models
+  // create n number of models
   async bulkCreate(req, res, Model, options = {}) {
     if (Model && 'bulkCreate' in Model) {
-      forEach(req.body, obj => {
-        obj.changedBy = req.user.id;
-        obj.changedOn = new Date();
-      });
-
       try {
         return Model.bulkCreate(req.body, res, options);
       } catch(error) {
@@ -131,7 +123,7 @@ export default {
     }
   },
 
-  // create or update a single Model
+  // create or update a single model
   async upsert(req, res, Model, options, postUpdateFn) {
     options = extend({ where: { id: req.params.id } }, options);
     if (Model && 'upsert' in Model) {
@@ -151,7 +143,7 @@ export default {
     }
   },
 
-  // updates a single Model
+  // updates a single model
   async patch(req, res, Model, options = { }) {
     if (Model && 'find' in Model && 'update' in Model) {
       try {
@@ -167,7 +159,7 @@ export default {
     }
   },
 
-  // deletes a single Model
+  // deletes a single model
   async destroy(req, res, Model, options = { where: { id: req.params.id } }) {
     if (Model && 'find' in Model) {
       try {

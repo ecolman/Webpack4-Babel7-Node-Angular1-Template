@@ -4,13 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title ng-bind="'GPS Portal' + (currentState.data.title ? ' | ' + currentState.data.title : '')"></title>
+    <title ng-bind="'Webpack Angular 1 Template' + (currentState.data.title ? ' | ' + currentState.data.title : '')"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
-    <meta name="DCSext.username" content="{{ngMeta['DCSext.username']}}" />
-    <meta name="DCSext.useremail" content="{{ngMeta['DCSext.useremail']}}" />
-    <meta name="DCSext.location" content="{{ngMeta['DCSext.location']}}" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 </head>
@@ -18,7 +14,6 @@
     <!--[if lt IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <scroll-assistant></scroll-assistant>
     <navbar></navbar>
     <ui-view></ui-view>
 </body>
