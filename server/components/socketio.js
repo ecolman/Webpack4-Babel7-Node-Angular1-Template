@@ -9,11 +9,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
-  require('../api/portal/favorite/favorite.socket').register(socket);
-  require('../api/product-plan/product-plan.socket').register(socket);
-  require('../api/project/project.socket').register(socket);
-  require('../api/project/milestone/milestone.socket').register(socket);
-  require('../api/comment/comment.socket').register(socket);
+  //require('../api/user/user.socket').register(socket);
 }
 
 export default function(socketio) {

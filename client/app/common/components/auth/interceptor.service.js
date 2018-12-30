@@ -1,4 +1,4 @@
-export function authInterceptor($q, $cookies, $rootScope, UtilService) {
+export function authInterceptor($q, $cookies, UtilService) {
   'ngInject';
 
   return {
@@ -16,10 +16,6 @@ export function authInterceptor($q, $cookies, $rootScope, UtilService) {
       if (response.status === 401) {
         // remove any stale tokens
         $cookies.remove('token');
-      }
-
-      if (response.status === 403 && response.config.url.indexOf('/api/admin') > -1) {
-        $rootScope.$broadcast('403Error', { data: response.data, url: response.config.url });
       }
 
       return $q.reject(response);

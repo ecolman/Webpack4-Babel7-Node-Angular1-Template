@@ -20,6 +20,6 @@ export default angular.module('webpack-angular1.auth', [ngCookies, Util, uiRoute
   .factory('authInterceptor', authInterceptor)
   .run(routerDecorator)
   .service('AuthService', AuthService)
-  .factory('UserService', UserResource)
+  .factory('UserResource', UserResource)
   .config(['$httpProvider', addInterceptor])
   .name;

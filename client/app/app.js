@@ -35,18 +35,12 @@ angular.module('webpack-angular1', [
   .config(routeConfig)
 
   // route transitions
-  .run(function($rootScope, $state, $transitions, $anchorScroll) {
+  .run(function($state, $transitions, $anchorScroll) {
     'ngInject';
-
-    $rootScope.isStateActive = state => $state.is(state);
-    $rootScope.includedStateActive = state => $state.includes(state);
-    $rootScope.firstState = true;
 
     $transitions.onSuccess({}, transition => {
       const from = transition.$from();
       const to = transition.$to();
-
-      $rootScope.currentState = $state.current;
 
       // scroll to the top of new angular route component
       if (from.component != to.component) {
@@ -60,7 +54,7 @@ angular.module('webpack-angular1', [
         }
       };
     });
-  })
+  });
 
 angular.element(document)
   .ready(() => {

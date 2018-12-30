@@ -3,7 +3,7 @@
 import _ from 'lodash';
 
 export class AuthService {
-  constructor($location, $cookies, $q, UtilService, UserService) {
+  constructor($location, $cookies, $q, UtilService, UserResource) {
     'ngInject';
 
     const _User = {
@@ -21,7 +21,7 @@ export class AuthService {
     this.currentUser = Object.assign({}, _User);
 
     if (this.$cookies.get('token') && $location.path() !== '/logout') {
-      this.currentUser = UserService.get();
+      this.currentUser = UserResource.get();
     }
   }
 
